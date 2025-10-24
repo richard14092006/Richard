@@ -1,0 +1,70 @@
+Exercício 1 — Conceito básico Lucas Wolf
+#include <stdio.h>
+
+
+int main()
+{
+	int *p;//Inicio o meu ponteiro;
+	int x = 15;
+	int x1; //Inicio o meu inteiro x com o valor 15;
+	p = &x; //Digo que meu ponteiro tem o valor 15 do x;
+	
+	printf("Valor de X: %d\n", x);//Mostrando sem usar o ponteiro p;
+	printf("Endereço de X: %d\n", p);//Mostrando o valor de x sem usar o * pois com * puxa o valor da variavel e não seu Endereço;
+    printf("Valor de X: %d", *p);//Mostrando o valor de x porem usando o ponteiro como base;
+    
+	return 0;
+
+}
+
+Exercício 2 — Função com ponteiro Lucas Wolf
+
+
+#include <stdio.h>
+
+
+void acrescentedez(int *p) {//Void pois não retorna nada é somente para que o ac.. é um int e um ponteiro que recebe +10;
+    *p = *p + 10;// Dizendo para o ponteiro oque ele será que ponteiro é ponteiro + 10, quando o ac... for chamado;
+}
+
+int main()
+{
+    int a = 25;//Meu a valendo 25;
+    
+    printf("Valor sem acrescente: %d\n", a);//Mostrando sem o acrescente;
+    
+    acrescentedez(&a);//Chamado o ac que é um ponteiro que o valor é +10, então será ac.. mais 10 no valor de a, pois &Chama o valor 25;
+    
+    printf("Valor após o acrescente: %d", a);//Mostrando com o acrescente;
+
+    return 0;
+}
+
+Exercício 3 — Ponteiro e array Lucas Wolf
+
+#include <stdio.h>
+
+int main()
+{
+    int a[5], i;
+    int *p = a; // Aqui nã coloquei o & pois ele já reconhece o elementep 0 do array;
+    int soma = 0; //Para fazer a soma né kkk
+    float media; //Para fazer a média e float porque pode gerar números complexos com , ;
+
+    
+    for( i = 0; i < 5; i++){ //fiz para rodar o array e cada número digitado ira para o próximo até acabar e coloquei <5 por que ele começa do 0 ao 4 que da 5 também;
+        printf("Nuemro:%d :   ", i + 1);
+        scanf("%d", p + i); // usa o p para ler cada valor, pois o i é somente para rodar por todo o array;
+    }
+    
+    for(i = 0; i < 5; i ++){ //Aqui novamente para rodar porem com os valores;
+        soma += *(p + i);//para somar os valores que estão em cada ponteiro e o i para rodar até 5;
+    }
+    
+    media = soma/5; //Fazer a média com os valores dos ponteiros armazenasdos no soma e dividir por 5 pois sã 5 notas;
+    
+    printf("Média e: %.2f", media);//Ira mostrar o valor final;
+    
+    return 0;
+}
+
